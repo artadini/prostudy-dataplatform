@@ -336,7 +336,7 @@ def make_args(tmp_path, coach_file):
             "snapshot_date": date(2026, 9, 1),
             "full_refresh": False,
             "rebuild_curated": False,
-            "duckdb_path": tmp_path / "db" / "stackfuel.duckdb",
+            "duckdb_path": tmp_path / "db" / "prostudy.duckdb",
             "coach_file": coach_file,
             "page_size": 500,
             "base_url": "http://fake",

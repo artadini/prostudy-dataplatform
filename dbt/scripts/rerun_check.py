@@ -55,7 +55,7 @@ def snapshot(database: str) -> dict:
 
 
 def build(dbt: str, dbt_dir: str, database: str) -> None:
-    env = {**os.environ, "DBT_PROFILES_DIR": ".", "STACKFUEL_DUCKDB_PATH": database}
+    env = {**os.environ, "DBT_PROFILES_DIR": ".", "PROSTUDY_DUCKDB_PATH": database}
     completed = subprocess.run(
         [dbt, "build"], cwd=dbt_dir, env=env, capture_output=True, text=True
     )

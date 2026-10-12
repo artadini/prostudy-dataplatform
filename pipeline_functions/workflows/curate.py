@@ -1,4 +1,4 @@
-"""Curate: ``stackfuel.raw`` -> ``stackfuel.curated`` (clean and type, do not deduplicate).
+"""Curate: ``prostudy.raw`` -> ``prostudy.curated`` (clean and type, do not deduplicate).
 
 * Every raw table without a curated table yet (or whose raw load was replaced since) is curated
   into the curated table of the same name. ``rebuild=True`` curates all of them again, which is

@@ -1,4 +1,4 @@
-# Stackfuel Learning-Data API (Test-Umgebung)
+# Prostudy Learning-Data API (Test-Umgebung)
 
 Lokaler HTTP-Server, der die Daten für die Aufgabe ausliefert. Er simuliert eine interne API, die zwei Quellsysteme zusammenführt:
 
@@ -21,8 +21,8 @@ python server.py --port 9000
 Alternativ mit Docker:
 
 ```bash
-docker build -t stackfuel-learning-api ./api
-docker run --rm -p 8000:8000 stackfuel-learning-api
+docker build -t prostudy-learning-api ./api
+docker run --rm -p 8000:8000 prostudy-learning-api
 ```
 
 Interaktive Dokumentation (Swagger UI): <http://127.0.0.1:8000/docs>
@@ -32,7 +32,7 @@ OpenAPI-Spezifikation: <http://127.0.0.1:8000/openapi.json>
 
 ```bash
 curl -X POST http://127.0.0.1:8000/login \
-     -d "username=stackfuel" -d "password=learn-data-2026"
+     -d "username=prostudy" -d "password=learn-data-2026"
 # → {"access_token": "…", "token_type": "bearer", "expires_in": 3600}
 
 curl http://127.0.0.1:8000/trainings -H "Authorization: Bearer <token>"

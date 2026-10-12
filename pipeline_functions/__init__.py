@@ -1,1 +1,1 @@
-"""Stackfuel raw extraction pipeline components."""
+"""Prostudy raw extraction pipeline components."""

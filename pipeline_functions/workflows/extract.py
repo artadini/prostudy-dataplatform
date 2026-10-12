@@ -1,4 +1,4 @@
-"""Extract: source -> ``stackfuel.raw`` (a 1:1 copy, no transformation).
+"""Extract: source -> ``prostudy.raw`` (a 1:1 copy, no transformation).
 
 Per dataset the extraction chooses between
 

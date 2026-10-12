@@ -9,5 +9,5 @@ select
     passive_count,
     detractor_count,
     round(nps, 1) as nps
-from "stackfuel"."reporting"."rpt_nps_by_training_quarter"
+from "prostudy"."reporting"."rpt_nps_by_training_quarter"
 order by training_id, feedback_quarter

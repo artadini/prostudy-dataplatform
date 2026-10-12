@@ -14,7 +14,7 @@ extracted/
 /db/logs/
 .ipynb_checkpoints/
 ~$*.xlsx
-/stackfuel/
+/prostudy/
 .pytest_cache/
 .DS_Store
 

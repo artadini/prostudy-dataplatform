@@ -9,7 +9,7 @@ select
     reporting_date,
     coach_snapshot_as_of_date,
     snapshot_mismatch_flag
-from "stackfuel"."reporting"."rpt_coach_utilization"
+from "prostudy"."reporting"."rpt_coach_utilization"
 union all by name
 select
     '(unassigned active/paused enrollments)' as coach,
@@ -20,5 +20,5 @@ select
     reporting_date,
     coach_snapshot_as_of_date,
     snapshot_mismatch_flag
-from "stackfuel"."reporting"."rpt_coach_unassigned_enrollments"
+from "prostudy"."reporting"."rpt_coach_unassigned_enrollments"
 order by 1

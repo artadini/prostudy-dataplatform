@@ -1,9 +1,11 @@
-# Stackfuel Training Operations KPI Pipeline
+# Prostudy Training Operations KPI Pipeline
 **Owner:** Nikolas Artadi | **Contact:** nikolas@artadini.eu | **Last updated:** 2026-10-07
 
-An end-to-end analytics pipeline that combines Stackfuel’s CRM, learning-platform API, and coach Excel workbook into five tested training-operations KPIs and a Streamlit dashboard.
+An end-to-end analytics pipeline that combines Prostudy’s CRM, learning-platform (LXP) API, and coach-maintained Excel workbook into five tested training-operations KPIs and a Streamlit dashboard. Prostudy delivers Data Analyst, Data Scientist, and Data Engineer training in full-time, part-time, and work-adjacent formats, often funded through education vouchers.
 
-The pipeline is designed for unreliable and inconsistent operational data: sources have no shared key, APIs can fail or return incomplete pages, and the coach data is manually maintained.
+Training Operations needs a weekly view of learner activity, progress risks, graduate satisfaction, and coach workload. Today, these figures are assembled manually in Excel from disconnected systems, producing inconsistent results from week to week. The pipeline replaces that process by bringing participant, booking, learning-progress, feedback, and coach-support data into one analysis-ready model.
+
+It is designed for unreliable and inconsistent operational data: the CRM, LXP, and Excel workbook have no shared key, APIs can fail or return incomplete pages, and coach records are manually maintained. The solution therefore includes deliberate handling of missing, duplicated, and inconsistent records so the KPIs remain trustworthy.
 
 ## Headline results and deliverables
 

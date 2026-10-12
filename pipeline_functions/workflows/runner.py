@@ -135,7 +135,7 @@ def run_pipeline(args, client: ApiClient | None = None) -> dict:
 def parse_args(argv=None):
     env = os.environ.get
     parser = argparse.ArgumentParser(
-        description="Stackfuel pipeline: source -> raw -> curated (DuckDB)"
+        description="Prostudy pipeline: source -> raw -> curated (DuckDB)"
     )
     parser.add_argument("--layer", choices=LAYERS, default=env("LAYER", "all"))
     parser.add_argument(

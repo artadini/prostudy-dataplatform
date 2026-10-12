@@ -6,5 +6,5 @@ select
     active_enrollment_count,
     reporting_date,
     data_quality_flags
-from "stackfuel"."reporting"."rpt_active_enrollments_by_training"
+from "prostudy"."reporting"."rpt_active_enrollments_by_training"
 order by training_id

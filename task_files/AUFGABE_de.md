@@ -1,4 +1,4 @@
-# Bewerbungsaufgabe Analytics Engineer (m/w/d) – Stackfuel
+# Bewerbungsaufgabe Analytics Engineer (m/w/d) – Prostudy
 
 Schön, dass du dabei bist! Diese Aufgabe gibt dir einen realistischen Eindruck davon, woran du bei uns arbeiten würdest, und uns einen Eindruck davon, wie du Datenprobleme angehst. Es geht **nicht** um Perfektion, sondern um nachvollziehbare Entscheidungen, sauberes Handwerk und klare Kommunikation.
 
@@ -8,7 +8,7 @@ Schön, dass du dabei bist! Diese Aufgabe gibt dir einen realistischen Eindruck 
 
 ## 1. Das Szenario
 
-Stackfuel bildet Menschen in Data-Trainings weiter (Data Analyst, Data Scientist, Data Engineer, …) – in Vollzeit, Teilzeit und berufsbegleitend, oft gefördert über Bildungsgutscheine. Unsere Daten liegen verteilt:
+Prostudy bildet Menschen in Data-Trainings weiter (Data Analyst, Data Scientist, Data Engineer, …) – in Vollzeit, Teilzeit und berufsbegleitend, oft gefördert über Bildungsgutscheine. Unsere Daten liegen verteilt:
 
 * im **CRM** (Teilnehmende, Buchungen/Teilnahmen, Status),
 * in der **Lernplattform (LXP)** (Lernfortschritt pro Modul, Feedback-Umfragen),
@@ -29,7 +29,7 @@ Die Leitung *Training Operations* möchte ein wöchentliches KPI-Reporting: Wie 
 | Lokale API mit CRM- und LXP-Daten | `api/` | Start: `python api/server.py` (nur Python-Standardbibliothek). Docs unter <http://127.0.0.1:8000/docs>. Details in [`api/README.md`](api/README.md). |
 | Coach-Betreuungsliste | `data/coach_betreuungsliste.xlsx` | Manuell gepflegtes Excel, Stand 01.09.2026 |
 
-Zugangsdaten für die API: Benutzername `stackfuel`, Passwort `learn-data-2026`.
+Zugangsdaten für die API: Benutzername `prostudy`, Passwort `learn-data-2026`.
 
 Datenstand ist der **01.09.2026**. Alle Analysen beziehen sich auf den **Stichtag 31.08.2026**.
 

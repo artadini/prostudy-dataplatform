@@ -186,7 +186,7 @@ def test_no_files_are_written_besides_the_database(api, make_args, tmp_path):
         for path in tmp_path.rglob("*")
         if path.is_file()
     }
-    assert created == {"coach.xlsx", "db/stackfuel.duckdb"}
+    assert created == {"coach.xlsx", "db/prostudy.duckdb"}
 
 
 # ------------------------------------------------------------------ idempotency

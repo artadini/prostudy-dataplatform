@@ -1,5 +1,5 @@
 """
-Stackfuel Learning-Data API (Test-Umgebung für die Bewerbungsaufgabe)
+Prostudy Learning-Data API (Test-Umgebung für die Bewerbungsaufgabe)
 
 Startet einen lokalen HTTP-Server, der Daten aus zwei Quellsystemen ausliefert:
   * CRM  -> /participants, /enrollments            (Zeitstempel: lokale Zeit Europe/Berlin, ohne Offset)
@@ -34,7 +34,7 @@ from urllib.parse import parse_qs, urlparse
 HERE = Path(__file__).resolve().parent
 DATA_DIR = HERE / "data"
 
-USERNAME = "stackfuel"
+USERNAME = "prostudy"
 PASSWORD = "learn-data-2026"
 TOKEN_TTL_SECONDS = 60 * 60
 DEFAULT_PAGE_SIZE = 100
@@ -283,7 +283,7 @@ def _pagination_params():
 OPENAPI = {
     "openapi": "3.0.3",
     "info": {
-        "title": "Stackfuel Learning-Data API (Test)",
+        "title": "Prostudy Learning-Data API (Test)",
         "version": "1.0.0",
         "description": (
             "Aggregiert Daten aus dem CRM (Teilnehmende, Teilnahmen) und der Lernplattform LXP "
@@ -707,7 +707,7 @@ OPENAPI = {
     },
 }
 
-DOCS_HTML = """<!doctype html><html><head><meta charset="utf-8"><title>Stackfuel Learning-Data API</title>
+DOCS_HTML = """<!doctype html><html><head><meta charset="utf-8"><title>Prostudy Learning-Data API</title>
 <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5/swagger-ui.css"></head>
 <body><div id="swagger-ui"></div>
 <script src="https://unpkg.com/swagger-ui-dist@5/swagger-ui-bundle.js"></script>
@@ -719,7 +719,7 @@ DOCS_HTML = """<!doctype html><html><head><meta charset="utf-8"><title>Stackfuel
 # HTTP-Handler
 # ----------------------------------------------------------------------------
 class Handler(BaseHTTPRequestHandler):
-    server_version = "StackfuelLearningDataAPI/1.0"
+    server_version = "ProstudyLearningDataAPI/1.0"
 
     def log_message(self, fmt, *args):  # kompakteres Log
         print(
@@ -773,7 +773,7 @@ class Handler(BaseHTTPRequestHandler):
                 return self._send(
                     200,
                     {
-                        "service": "Stackfuel Learning-Data API (Test)",
+                        "service": "Prostudy Learning-Data API (Test)",
                         "docs": "/docs",
                         "openapi": "/openapi.json",
                         "login": "POST /login",
@@ -834,13 +834,13 @@ class Handler(BaseHTTPRequestHandler):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Stackfuel Learning-Data API (Test)")
+    ap = argparse.ArgumentParser(description="Prostudy Learning-Data API (Test)")
     ap.add_argument("--host", default="127.0.0.1")
     ap.add_argument("--port", type=int, default=8000)
     args = ap.parse_args()
     server = ThreadingHTTPServer((args.host, args.port), Handler)
     print(
-        f"Stackfuel Learning-Data API läuft auf http://{args.host}:{args.port}  (Docs: /docs)"
+        f"Prostudy Learning-Data API läuft auf http://{args.host}:{args.port}  (Docs: /docs)"
     )
     print(
         f"  Datensätze: {len(TRAININGS)} Trainings, {len(PARTICIPANTS)} Teilnehmende, {len(ENROLLMENTS)} "

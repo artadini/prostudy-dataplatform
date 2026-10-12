@@ -2,7 +2,7 @@
 
 Run:   make dashboard            (or: .venv-dashboard/bin/streamlit run dashboard.py)
 
-Data:  read-only from db/duckdb/stackfuel.duckdb, schema `reporting` (built by `make dbt-build`).
+Data:  read-only from db/duckdb/prostudy.duckdb, schema `reporting` (built by `make dbt-build`).
        Only `marts.dim_trainings` is read in addition, for the variant filter (the reporting models
        carry no variant). The connection is opened per load and closed again, so the pipeline and
        dbt can write to the file while the dashboard is open (reload the page afterwards).
@@ -19,8 +19,8 @@ import streamlit as st
 
 DB_PATH = Path(
     os.environ.get(
-        "STACKFUEL_DUCKDB_PATH",
-        Path(__file__).resolve().parent / "db" / "duckdb" / "stackfuel.duckdb",
+        "PROSTUDY_DUCKDB_PATH",
+        Path(__file__).resolve().parent / "db" / "duckdb" / "prostudy.duckdb",
     )
 )
 REPORTING_MODELS = [

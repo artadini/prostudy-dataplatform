@@ -55,7 +55,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", required=True)
     parser.add_argument(
-        "--compiled-dir", default="dbt/target/compiled/stackfuel/analyses"
+        "--compiled-dir", default="dbt/target/compiled/prostudy/analyses"
     )
     parser.add_argument("--output-dir", default="dbt/reports")
     args = parser.parse_args()

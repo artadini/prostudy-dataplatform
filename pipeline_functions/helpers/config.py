@@ -1,11 +1,11 @@
 """Static configuration of the pipeline: datasets, naming and the curated column contract.
 
-Layout inside the DuckDB database ``stackfuel`` (nothing is written to disk besides the
+Layout inside the DuckDB database ``prostudy`` (nothing is written to disk besides the
 database file itself):
 
-    stackfuel.raw."<YYYYMMDD>_<source>_<dataset>"      1:1 copy of what the source delivered
-    stackfuel.curated."<YYYYMMDD>_<source>_<dataset>"  typed, cleaned, flagged (not deduplicated)
-    stackfuel.meta.*                                   run, watermark and curation bookkeeping
+    prostudy.raw."<YYYYMMDD>_<source>_<dataset>"      1:1 copy of what the source delivered
+    prostudy.curated."<YYYYMMDD>_<source>_<dataset>"  typed, cleaned, flagged (not deduplicated)
+    prostudy.meta.*                                   run, watermark and curation bookkeeping
 """
 
 import os
@@ -20,7 +20,7 @@ from ..helpers.extraction_types import (
 # Runtime defaults (override via CLI flags / environment variables, see workflows/runner.py)
 # --------------------------------------------------------------------------------------
 API_BASE_URL = "http://127.0.0.1:8000"
-DATABASE_PATH = Path("db/duckdb/stackfuel.duckdb")
+DATABASE_PATH = Path("db/duckdb/prostudy.duckdb")
 COACH_FILE = Path("data/coach_betreuungsliste.xlsx")
 PAGE_SIZE = 500  # the API maximum
 # The workbook carries no date; the assignment states it is the 01.09.2026 state.

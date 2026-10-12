@@ -32,7 +32,7 @@ MARKER = "INCREMENTAL-CHECK-MARKER"
 
 
 def dbt(binary: str, dbt_dir: str, database: str, *args: str) -> None:
-    env = {**os.environ, "DBT_PROFILES_DIR": ".", "STACKFUEL_DUCKDB_PATH": database}
+    env = {**os.environ, "DBT_PROFILES_DIR": ".", "PROSTUDY_DUCKDB_PATH": database}
     completed = subprocess.run(
         [binary, "build", *args], cwd=dbt_dir, env=env, capture_output=True, text=True
     )
@@ -170,7 +170,7 @@ def main() -> None:
     parser.add_argument("--dbt", default="dbt")
     args = parser.parse_args()
 
-    workdir = tempfile.mkdtemp(prefix="stackfuel-incremental-")
+    workdir = tempfile.mkdtemp(prefix="prostudy-incremental-")
     copy_a, copy_b = os.path.join(workdir, "incremental.duckdb"), os.path.join(
         workdir, "full_refresh.duckdb"
     )

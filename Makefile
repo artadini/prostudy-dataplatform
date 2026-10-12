@@ -1,7 +1,7 @@
-API_IMAGE := stackfuel-learning-api
-PIPELINE_IMAGE := stackfuel-pipeline
-API_CONTAINER := stackfuel-api
-API_NETWORK := stackfuel-pipeline-net
+API_IMAGE := prostudy-learning-api
+PIPELINE_IMAGE := prostudy-pipeline
+API_CONTAINER := prostudy-api
+API_NETWORK := prostudy-pipeline-net
 API_PORT ?= 9000
 .DEFAULT_GOAL := build
 
@@ -12,12 +12,12 @@ API_PORT ?= 9000
 
 # --- dbt (transformation, marts and reporting on top of the raw curated layer) -------------
 # Run `python pipeline.py` (or `make run` / `make pipeline-local`) first: dbt reads raw.*_curated
-# from db/duckdb/stackfuel.duckdb. DuckDB has a single writer: close other sessions on the file.
+# from db/duckdb/prostudy.duckdb. DuckDB has a single writer: close other sessions on the file.
 DBT_VENV ?= .venv-dbt
-DBT_DB ?= $(CURDIR)/db/duckdb/stackfuel.duckdb
-DBT = cd dbt && DBT_PROFILES_DIR=. STACKFUEL_DUCKDB_PATH=$(DBT_DB) $(CURDIR)/$(DBT_VENV)/bin/dbt
+DBT_DB ?= $(CURDIR)/db/duckdb/prostudy.duckdb
+DBT = cd dbt && DBT_PROFILES_DIR=. PROSTUDY_DUCKDB_PATH=$(DBT_DB) $(CURDIR)/$(DBT_VENV)/bin/dbt
 # Pipeline interpreter: .venv (created by `make pipeline-setup`), the author's local venv, or python3
-PYTHON ?= $(firstword $(wildcard .venv/bin/python stackfuel/bin/python) python3)
+PYTHON ?= $(firstword $(wildcard .venv/bin/python prostudy/bin/python) python3)
 LOCAL_API_PORT ?= 8000
 
 dbt-setup:
@@ -97,7 +97,7 @@ demo:
 pipeline-local:
 	$(PYTHON) pipeline.py
 
-# Flush the stackfuel database on demand: deletes the DuckDB file (raw, curated, meta and any dbt
+# Flush the prostudy database on demand: deletes the DuckDB file (raw, curated, meta and any dbt
 # schemas in it) and its write-ahead log. The next pipeline run recreates everything from the sources.
 # Make sure no other process (pipeline, dbt, dashboard, DuckDB shell) has the file open.
 db-flush:
@@ -120,7 +120,7 @@ dashboard-setup:
 
 # Needs `make dbt-build` first. http://localhost:$(DASHBOARD_PORT)
 dashboard:
-	STACKFUEL_DUCKDB_PATH=$(DBT_DB) $(DASHBOARD_VENV)/bin/streamlit run dashboard.py --server.port $(DASHBOARD_PORT)
+	PROSTUDY_DUCKDB_PATH=$(DBT_DB) $(DASHBOARD_VENV)/bin/streamlit run dashboard.py --server.port $(DASHBOARD_PORT)
 
 # Full reproducible sequence once the API is up: pipeline -> dbt build -> saved results
 all: pipeline-local dbt-build dbt-results

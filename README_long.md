@@ -1,8 +1,8 @@
-# Stackfuel Training Operations KPI Pipeline
+# Prostudy Training Operations KPI Pipeline
 
 **Owner:** Nikolas Artadi | **Contact:** nikolas@artadini.eu | **Last updated:** 2026-10-07
 
-Built an end-to-end analytics pipeline that combines data from Stackfuel’s CRM, learning platform API, and manually maintained coach Excel file into a tested, reproducible DuckDB model and weekly KPI report.
+Built an end-to-end analytics pipeline that combines data from Prostudy’s CRM, learning platform API, and manually maintained coach Excel file into a tested, reproducible DuckDB model and weekly KPI report.
 
 The pipeline must handle pagination, authentication, API failures, inconsistent data, duplicates, broken references, and linking coaches to participants without a shared key. It should answer five business questions on enrollments, completion and abandonment, curriculum progress, NPS, and coach workloads.
 
@@ -62,7 +62,7 @@ flowchart LR
 
 ## 1. Introduction and approach
 
-This pipeline answers five recurring business questions for Stackfuel’s Training Operations team. Data from the CRM, learning platform, and coach Excel file is extracted, preserved, cleaned, modeled, and transformed into tested tables and a reproducible dashboard.
+This pipeline answers five recurring business questions for Prostudy’s Training Operations team. Data from the CRM, learning platform, and coach Excel file is extracted, preserved, cleaned, modeled, and transformed into tested tables and a reproducible dashboard.
 
 ### How this project was built:
 
@@ -91,7 +91,7 @@ Metadata, logging, and explicit error handling supported validation throughout d
 
 - `make` and Python 3.12 or newer (developed on 3.14, macOS). Docker is optional.
 - Python packages of the pipeline (`requirements.txt`): `duckdb`, `openpyxl`, `pyarrow`, `pytz`, `tzdata`.
-- The bundled test API uses the assignment login by default (`stackfuel` / `learn-data-2026`); override it with the environment variables `API_USERNAME` and `API_PASSWORD`.
+- The bundled test API uses the assignment login by default (`prostudy` / `learn-data-2026`); override it with the environment variables `API_USERNAME` and `API_PASSWORD`.
 
 ### Run it
 
@@ -101,7 +101,7 @@ make demo        # starts the test API, runs the pipeline, builds and tests dbt,
 make dashboard   # optional: http://localhost:8501
 ```
 
-`make demo` stops the API afterwards, even if a step fails. If the pipeline does not finish as `SUCCESS` (exit code 1 = failed, 2 = partial success), dbt and the reports are skipped, so no report is built on an incomplete load. It is safe to rerun: a rerun on the same day replaces that day's raw and curated tables, earlier days are kept, and a second dbt build gives identical tables. Close other programs that use `db/duckdb/stackfuel.duckdb` (a DuckDB shell, an IDE dbt extension, the dashboard) first, because DuckDB allows only one writer. If port 8000 is already taken, use `make demo LOCAL_API_PORT=8012`.
+`make demo` stops the API afterwards, even if a step fails. If the pipeline does not finish as `SUCCESS` (exit code 1 = failed, 2 = partial success), dbt and the reports are skipped, so no report is built on an incomplete load. It is safe to rerun: a rerun on the same day replaces that day's raw and curated tables, earlier days are kept, and a second dbt build gives identical tables. Close other programs that use `db/duckdb/prostudy.duckdb` (a DuckDB shell, an IDE dbt extension, the dashboard) first, because DuckDB allows only one writer. If port 8000 is already taken, use `make demo LOCAL_API_PORT=8012`.
 
 <details>
 <summary>Without make</summary>

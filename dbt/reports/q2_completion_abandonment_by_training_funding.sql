@@ -10,5 +10,5 @@ select
     other_status_count,
     round(completed_share, 4) as completed_share,
     round(abandoned_share, 4) as abandoned_share
-from "stackfuel"."reporting"."rpt_completion_abandonment_by_training_funding"
+from "prostudy"."reporting"."rpt_completion_abandonment_by_training_funding"
 order by training_id, funding_type

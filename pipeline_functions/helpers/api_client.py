@@ -1,4 +1,4 @@
-"""HTTP client for the Stackfuel learning-data API.
+"""HTTP client for the Prostudy learning-data API.
 
 * Login: ``POST /login`` returns a bearer token with a lifetime. The token is renewed shortly
   before it expires, and once more if the API answers ``401``.

@@ -9,5 +9,5 @@ select
     round(behind_schedule_share, 4) as behind_schedule_share,
     round(average_completed_module_share, 4) as average_completed_module_share,
     round(average_time_progress_share, 4) as average_time_progress_share
-from "stackfuel"."reporting"."rpt_progress_vs_time_summary"
+from "prostudy"."reporting"."rpt_progress_vs_time_summary"
 order by is_total, training_id
